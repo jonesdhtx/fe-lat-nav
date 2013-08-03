@@ -4,6 +4,9 @@ Front end globally shared
 
 ## Getting Started
 
+'grunt-contrib-sass'requires you to have [Ruby](http://www.ruby-lang.org/en/downloads/) and [Sass](http://sass-lang.com/download.html) installed. When you've confirmed you have Ruby installed, run `gem install sass` to install Sass.
+
+
 Make sure you have the latest packages installed
 
 ```
@@ -21,6 +24,7 @@ If you don't have bower,
 The above steps will download all the required software to
 build and run this app, such as [grunt](http://gruntjs.com),
 [requirejs](http://requirejs.org), and [jquery](http://jquery.com).
+
 
 ## Running the server
 

@@ -18,24 +18,31 @@ module.exports = function(grunt) {
     jshint: {
       src: ['dist/**/*.js']
     },
+    sass: {
+      options: {
+        cacheLocation: 'test/build/.sass-cache',
+        loadPath: [
+          'components/fe-lat-global/dist/styles'
+        ]
+      },
+      dist: {
+        src: ['dist/styles/*.scss'],
+        dest: 'test/build/nav.css'
+      }
+    },
     watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
-      src: {
-        files: '<%= jshint.src.src %>',
-        tasks: ['jshint:src', 'qunit']
-      },
-      test: {
-        files: '<%= jshint.test.src %>',
-        tasks: ['jshint:test', 'qunit']
-      },
+      sass: {
+        files: [
+          '../components/fe-lat-global/dist/styles/*.scss',
+          'dist/styles/*.scss'
+        ],
+        tasks: ['sass'],
+      }
     },
     connect: {
       development: {
         options: {
-          keepalive: true,
+          keepalive: false
         }
       }
     }
@@ -46,8 +53,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit']);
-  grunt.registerTask('server', ['connect:development']);
+  grunt.registerTask('default', ['jshint', 'sass:dist', 'qunit']);
+  grunt.registerTask('server', ['sass:dist', 'connect', 'watch:sass']);
 };
