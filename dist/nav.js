@@ -1,7 +1,7 @@
 define([
   'jquery',
   'lodash',
-  'tpl!ys/lat/nav/templates/nav.tpl'
+  'tpl!./templates/nav.tpl'
 ], function($, _, navTemplate) {
   return {
     render: function(target) {

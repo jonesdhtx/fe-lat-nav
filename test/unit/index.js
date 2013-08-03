@@ -1,7 +1,7 @@
 define([
   'jquery',
   'lodash',
-  'ys/lat/nav/nav'
+  'dist/nav'
 ],function($, _, nav) {
 
   module('nav');

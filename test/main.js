@@ -4,7 +4,7 @@ require.config({
     "lodash": "../components/lodash/lodash",
     "tpl": "../components/requirejs-text/index",
     "unit": "../test/unit",
-    "ys/lat/nav": "../dist"
+    "dist": "../dist"
   }
 });
 
@@ -14,7 +14,7 @@ if(typeof(QUnit) != 'undefined') {
   });
 }
 else {
-  require(['ys/lat/nav/nav'], function(nav) {
+  require(['dist/nav'], function(nav) {
     nav.render();
   });
 }
