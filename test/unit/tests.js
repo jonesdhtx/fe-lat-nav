@@ -3,7 +3,6 @@ define([
   'lodash',
   'ys/lat/nav/nav'
 ],function($, _, nav) {
-  QUnit.start();
 
   module('nav');
 

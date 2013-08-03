@@ -3,13 +3,14 @@ require.config({
     "jquery": "../components/jquery/jquery",
     "lodash": "../components/lodash/lodash",
     "tpl": "../components/requirejs-text/index",
-    "ys/lat/nav": "../dist"
+    "ys/lat/nav": "../dist",
+    "unit": "../test/unit"
   }
 });
 
 if(typeof(QUnit) != 'undefined') {
-  require.config({
-    deps: ["tests.js"]
+  require(['unit/tests'], function() {
+    QUnit.start()
   });
 }
 else {

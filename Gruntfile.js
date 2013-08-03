@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     qunit: {
-      files: ['test/**/*.html']
+      files: ['test/unit/**/*.html']
     },
     jshint: {
       src: ['dist/**/*.js']
@@ -33,8 +33,10 @@ module.exports = function(grunt) {
       },
     },
     connect: {
-      options: {
-        keepalive: true,
+      development: {
+        options: {
+          keepalive: true,
+        }
       }
     }
   });
@@ -47,5 +49,5 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit']);
-  grunt.registerTask('server', ['connect']);
+  grunt.registerTask('server', ['connect:development']);
 };
